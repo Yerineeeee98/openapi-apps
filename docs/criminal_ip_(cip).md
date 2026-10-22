@@ -1,4 +1,4 @@
-# Criminal IP(CIP)
+# Criminal IP (CIP)
 Criminal IP is a Cyber Threat Intelligence (CTI) search engine by AI SPERA. It gives threat data collected by its own scanners: inbound and outbound risk scores for IP addresses, open ports and banners, vulnerabilities linked to public exploit code, VPN / Tor / proxy detection, and domain scan reports.
 
 - Website: https://www.criminalip.io
@@ -73,8 +73,8 @@ Example response (shortened):
 {
   "ip": "1.1.1.1",
   "score": { "inbound": "Safe", "outbound": "Safe" },
-  "issues": { "is_vpn": false, "is_tor": false, "is_proxy": false, "is_scanner": false },
-  "port": { "count": 2, "data": [ { "open_port_no": 443, "app_name": "...", "banner": "..." } ] },
+  "issues": { "is_vpn": ..., "is_tor": ..., "is_proxy": ..., "is_scanner": ... },
+  "port": { "count": 20, "data": [ ... ] },
   "status": 200
 }
 ```
@@ -83,7 +83,7 @@ Score values are `Safe`, `Low`, `Moderate`, `Dangerous` and `Critical`.
 
 ## Example: domain full scan
 1. **Get domain scan ID** with body `query=example.com` (form data) - returns `scan_id`.
-2. Wait about 50 seconds (for example a Python step with `time.sleep(50)`). Most domains are done by then.
+2. Wait about 50 seconds (for example a Python step with time.sleep(50)). In our tests, the scan was done (100%) at 50 seconds.
 3. **Get domain scan status** with `id` = `scan_id` (from step 1) - `scan_percentage` is 100 when done.
 4. **Get domain report** with `id` = `scan_id` (from step 1, not from the status step).
 
